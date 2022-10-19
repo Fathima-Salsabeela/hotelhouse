@@ -74,8 +74,8 @@ public function formCommande(SliderRepository $repo_slider, Commande $commande =
 }
       
   #[Route("/chambre", name:"chambre")]
-  public function chambre(SliderRepository $repo_slider)
-  {
+  public function chambre(SliderRepository  $repo_slider)
+  { 
     $photos=$repo_slider->findAll();
     return $this->render('app/chambre.html.twig', [
         'photos'=>$photos

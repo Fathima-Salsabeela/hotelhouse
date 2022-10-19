@@ -1,19 +1,62 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello AppController!{% endblock %}
-
+     
 {% block body %}
+<div class="container">
+<h1 class="text-align-center">Page acceuil</h1>
+<div class="container text-center">
+  <div class="row justify-content-start">
+    <div class="col">
+      <img src="{{ asset('image/slider_5.webp')}}" class=" w-20 rounded-circle  " style="height:20vh; " alt="image">
+    </div>
+    <div class="col">
+      <img src="{{ asset('image/restaurant.jpg')}}" class=" w-20 rounded-circle " style="height:20vh; " alt="image">
+    </div>
+    <div class="col">
+      <img src="{{ asset('image/spa.jpg')}}" class=" w-20 rounded-circle " style="height:20vh ;" alt="image">
+    </div>
+    </div>
+    <div class="row justify-content-center">
+    <div class="col">
+      <h3>Chambre</h3>
+      <p>Venez découvrir nos chambres pour votre plus grand confort!</p>
+    </div>
+    <div class="col">
+      <h3>Restaurant</h3>
+      <p>Nos plats sont confectionnés à la minute par notre chef cuisinier chaque jour</p>
+    </div>
+    <div class="col">
+      <h3>Spa</h3>
+      <p>Détendez-vous offrez vous un message dont vous vous rappellerez longtemps</p>
+    </div>
+    </div>
+    <div class="row justify-content-end">
+    <div class="col">
+    <a href="{{ path('chambre') }}">Découvrir les Chambres</a> 
+    </div>
+     <div class="col">
+      <a href="{{ path('restaurant') }}">Voir le carte</a> 
+    </div>
+    <div class="col">
+      <a href="{{ path('spa') }}">Les soins</a> 
+    </div>
+    </div>
+    
+   
 
-<h1 <img src="slider_10.webp" alt="">chambre</h1>
-<div><h1>Restaurant</h1></div>
-<div><h1>Spa</h1></div>
 
 
-<div>
-<h1>Architecture</h1>
+ 
+
+
+{# <div>
+<h2 class="text-align-center" >Architecture</h2>
 <div class="container row mt-5">
-  <div class="col-6">
+ <div class="col-6">
+ 
   <ul class="list-group"><ul>
+  
     <li><a href="{{ path('app_app') }}"> Accueil</a> – page d'accueil du site présentant l'Hôtel</li>
     <br>
     <li><a href="{{ path('chambre') }}">Chambre</a> – page listant toutes les gammes de chambres avec formulaire de réservation</li>
@@ -75,7 +118,10 @@
   </div>
 </div>
 
-</div>
+</div> #}
+
+
+
 
 {% endblock %}
 
