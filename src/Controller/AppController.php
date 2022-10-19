@@ -13,7 +13,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 class AppController extends AbstractController
-{   
+{   #[Route('/app', name: 'home')]  
+    public function home(): Response 
+    {
+       return $this->render('app/index.html.twig');
+    }
+
+
     #[Route('/app', name: 'app_app')]
     public function index(SliderRepository $repo_slider): Response
     {
