@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 class AppController extends AbstractController
-{   #[Route('/app', name: 'home')]  
+{   #[Route('/', name: 'home')]  
     public function home(): Response 
     {
        return $this->render('app/index.html.twig');
