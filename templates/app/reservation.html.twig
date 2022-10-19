@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Admin | Formulaire commande
+{% endblock %}
+
+{% block body %}
+<div class="class container">
+<div class="class boder-dark col-8 align-center">
+
+    {{ form_start(form) }}
+    
+	{{ form_row(form.prenom) }}
+	{{ form_row(form.nom) }}
+	{{ form_row(form.chambre) }}
+    {{ form_row(form.telephone) }}
+    {{ form_row(form.email) }}
+	{{ form_row(form.date_arivee) }}
+	{{ form_row(form.date_depart) }}
+
+	<button class="btn btn-primary col-12" type="submit">Reserver </button>
+
+	{{ form_end(form) }}
+
+</div>
+</div>
+{% endblock %}
