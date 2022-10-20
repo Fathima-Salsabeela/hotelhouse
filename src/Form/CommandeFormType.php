@@ -33,6 +33,7 @@ class CommandeFormType extends AbstractType
                 ->add('telephone')
                 ->add('email')
                 // ->add('date_enregistrement')
+                
         ;
     }
 

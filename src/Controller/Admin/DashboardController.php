@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Membre;
 use App\Entity\Slider;
 use App\Entity\Chambre;
+use App\Entity\Contact;
 use App\Entity\Commande;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -44,7 +45,8 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Membre', 'fas fa-user', Membre::class),
             MenuItem::linkToCrud('Slider', 'fas fa-images', Slider::class),
             MenuItem::linkToCrud('Chambre', 'fas fa-bed', Chambre::class),
-            MenuItem::linkToCrud('Commande', 'fas fa-cash-register', Commande::class)
+            MenuItem::linkToCrud('Commande', 'fas fa-cash-register', Commande::class),
+            MenuItem::linkToCrud('Contact', 'fas fa-contact', Contact::class)
         ];        
     }
 }

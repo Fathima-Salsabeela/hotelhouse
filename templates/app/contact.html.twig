@@ -3,7 +3,26 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-<h1>Contact</h1>
+<h1>Contactez-nous </h1>
+<div class="class container">
+<div class="class boder-dark col-8 align-center">
+
+    {{ form_start(form) }}
+    
+	{{ form_row(form.prenom) }}
+	{{ form_row(form.nom ) }} 
+	{{ form_row(form.email) }}
+    {{ form_row(form.telephone) }}
+	{{ form_row(form.categorie) }}
+	{{ form_row(form.sujet) }}
+    {{ form_row(form.votredemande) }}
+
+	<button class="btn btn-primary col-12" type="submit">Envoyez </button>
+
+	{{ form_end(form) }}
+
+</div>
+</div>
 
 
 

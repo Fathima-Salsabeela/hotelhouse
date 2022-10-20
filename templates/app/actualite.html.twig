@@ -4,7 +4,75 @@
 
 {% block body %}
 <h1>Actualités </h1>
+<div>
+<h2 class="text-align-center" >Architecture</h2>
+<div class="container row mt-5">
+ <div class="col-6">
+ 
+  <ul class="list-group"><ul>
+  
+    <li><a href="{{ path('app_app') }}"> Accueil</a> – page d'accueil du site présentant l'Hôtel</li>
+    <br>
+    <li><a href="{{ path('chambre') }}">Chambre</a> – page listant toutes les gammes de chambres avec formulaire de réservation</li>
+      <ul><ul>
+        <li>Classique – section présentant la gamme de « chambre classique »</li>
+        <li>Confort – section présentant la gamme de « chambre confort »</li>
+        <li>Suite – section présentant la gamme de « suite »</li>
+      </ul></ul>
+      <br>
+    <li><a  href="{{ path('restaurant') }}">Restaurant</a> – page présentant le restaurant</li>
+      <ul><ul>
+        <li>Carte Brasserie – carte du midi</li>
+        <li>Carte Dégustation – carte de l’après-midi</li>
+        <li>Carte Restaurant – carte du soir</li>
+      </ul></ul>
+      <br>
+    <li><a href="{{ path('spa') }}">Le Spa</a> – page présentant le SPA</li>
+      <ul><ul>
+        <li>Spa avec soin Détente – fiche soin</li>
+        <li>Spa avec soin Relaxant – fiche soin</li>
+        <li>Spa avec soin Plaisir – fiche soin</li>
+      </ul></ul>
+      <br>
+    <li><a href="{{ path('avis') }}">Avis</a> – page affichant les derniers commentaires laissés sur le site ainsi qu’un formulaire permettant de s’exprimer</li>
+  </ul></ul>
+  </div>
+  <div class="col-6">
 
+  <ul class="list-group"><ul>
+    <li><a href="{{ path('hotel') }}">L'hôtel</a></li>
+        <ul><ul>
+        <li>Qui sommes-nous ? – page comprenant l’historique de la société</li>
+        <li>Accès – page avec un plan (GoogleMap)</li>
+        <li>Contact – page composée d’un formulaire de contact</li>
+      </ul></ul>
+    <br>
+      <li><a href="{{ path('actualite') }}">Actualités</a> – page de brèves listant les 15 dernières actualités du secteur Hôtelier.</li>
+    <br>
+    <li><a href="{{ path('contact') }}">Contact</a> – page composée d’un formulaire de contact (il s’agit de la même page que Hôtel/Contact)
+</li>
+    <br>
+    <li><b>Liens divers</b></li>
+      <ul><ul>
+        <li>Mentions Légales – page de texte</li>
+        <li>Conditions Générales de Vente – page de texte</li>
+        <li>Plan du site – Listing de l’architecture du site</li>
+        <li>Imprimer la page – Lien</li>
+        <li>S’inscrire à la newsletter – page permettant l’’abonnement à la newsletter</li>
+        <li>Partage – proposer le partage avec un ami ou sur les réseaux sociaux.</li>
+      </ul></ul>
+      <br>
+    <li><b>Options</b></li>
+      <ul><ul>
+        <li>Choisir la langue (Français ou Anglais)</li>
+        <li>Voir son panier</li>
+        <li>Carte Restaurant – carte du soir</li>
+    </ul></ul>
+  </ul></ul>
+  </div>
+</div>
+
+</div>
 
 
 

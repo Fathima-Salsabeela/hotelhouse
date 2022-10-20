@@ -2,21 +2,28 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
 use App\Entity\Commande;
+use App\Form\ContactFormType;
 use App\Form\CommandeFormType;
 use App\Repository\SliderRepository;
+use App\Repository\ContactRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\Loader\Configurator\form;
 
 
 class AppController extends AbstractController
 {   #[Route('/', name: 'home')]  
-    public function home(): Response 
-    {
-       return $this->render('app/index.html.twig');
+    public function home(SliderRepository $repo_slider): Response 
+    {  
+        $photos=$repo_slider->findAll();
+       return $this->render('app/index.html.twig',[
+        'photos'=>$photos
+       ]);
     }
 
 
@@ -99,13 +106,31 @@ public function formCommande(SliderRepository $repo_slider, Commande $commande =
   }
 
   #[Route("/contact", name:"contact")]
-  public function contact(SliderRepository $repo_slider)
-  {
+  public function formContact(ContactRepository $repo , SliderRepository $repo_slider, EntityManagerInterface $manager,Request $request, Contact $contact = null)
+  {  
     $photos=$repo_slider->findAll();
-    return $this->render('app/contact.html.twig', [
+    if (!$contact) {
+        $contact = new Contact ;
+        // $contact->setDateEnregistrement(new \DateTime());
+       
+    }
+    $form = $this->createForm(ContactFormType::class, $contact);
+    $form->handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid()){
+       
+        $manager->persist($contact);
+        $manager->flush();
+        $this->addFlash('success', 'La contact a bien été Créer !');
+        return $this->redirectToRoute('app_app');
+    }
+    return $this->renderForm('app/contact.html.twig', [   
+        'form' => $form,
         'photos'=>$photos
     ]);
-  }
+}
+        
+    
+  
   #[Route("/hotel", name:"hotel")]
   public function hotel(SliderRepository $repo_slider)
   {
@@ -129,6 +154,33 @@ public function formCommande(SliderRepository $repo_slider, Commande $commande =
   {
     $photos=$repo_slider->findAll();
     return $this->render('app/spa.html.twig', [
+        'photos'=>$photos
+    ]);
+  }
+
+  #[Route("/classique", name:"classique")]
+  public function classique(SliderRepository $repo_slider)
+  {
+    $photos=$repo_slider->findAll();
+    return $this->render('app/classique.html.twig', [
+        'photos'=>$photos
+    ]);
+  }
+
+  #[Route("/confort", name:"confort")]
+  public function confort(SliderRepository $repo_slider)
+  {
+    $photos=$repo_slider->findAll();
+    return $this->render('app/confort.html.twig', [
+        'photos'=>$photos
+    ]);
+  }
+
+  #[Route("/suite", name:"suite")]
+  public function suite(SliderRepository $repo_slider)
+  {
+    $photos=$repo_slider->findAll();
+    return $this->render('app/suite.html.twig', [
         'photos'=>$photos
     ]);
   }
