@@ -39,7 +39,7 @@ class AppController extends AbstractController
 
     
 
-    #[Route('/architecture', name: 'app_architecture')]
+    #[Route('/architecture', name: 'architecture')]
     public function architecture(SliderRepository $repo_slider): Response
     {
         $photos=$repo_slider->findAll();
@@ -107,7 +107,7 @@ public function formCommande(SliderRepository $repo_slider, Commande $commande =
 
   #[Route("/contact", name:"contact")]
   public function formContact(ContactRepository $repo , SliderRepository $repo_slider, EntityManagerInterface $manager,Request $request, Contact $contact = null)
-  {  
+  {  $contacts=$repo->findAll();
     $photos=$repo_slider->findAll();
     if (!$contact) {
         $contact = new Contact ;
@@ -121,11 +121,13 @@ public function formCommande(SliderRepository $repo_slider, Commande $commande =
         $manager->persist($contact);
         $manager->flush();
         $this->addFlash('success', 'La contact et Avis a bien été Créer !');
-        return $this->redirectToRoute('app_app');
+        return $this->redirectToRoute('contact');
     }
     return $this->renderForm('app/contact.html.twig', [   
         'form' => $form,
-        'photos'=>$photos
+        'photos'=>$photos,
+        'contact'=>$contact,
+        'contacts'=>$contacts
     ]);
 }
         
@@ -184,6 +186,17 @@ public function formCommande(SliderRepository $repo_slider, Commande $commande =
         'photos'=>$photos
     ]);
   }
+
+  #[Route("/acces", name:"acces")]
+  public function acces(SliderRepository $repo_slider)
+  {
+    $photos=$repo_slider->findAll();
+    return $this->render('app/acces.html.twig', [
+        'photos'=>$photos
+    ]);
+  }
+
+  
 
 }
     

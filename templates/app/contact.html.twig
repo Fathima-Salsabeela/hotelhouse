@@ -26,6 +26,30 @@
 </div>
 
 
+<h1 class="text-center">AVIS</h1>
+
+<table class="table">
+<thead>
+    <tr>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Avis</th>
+       
+    </tr>
+</thead>
+<tbody>
+{% for item in contacts %}
+    <tr>
+        <td>{{ item.nom}}</td>
+        <td>{{ item.prenom}}</td>
+        <td>{{ item.avis}}</td>
+        
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+
+
 
 
 {% endblock %}
