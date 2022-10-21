@@ -34,6 +34,9 @@ class Contact
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $avis = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +122,18 @@ class Contact
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getAvis(): ?string
+    {
+        return $this->avis;
+    }
+
+    public function setAvis(string $avis): self
+    {
+        $this->avis = $avis;
 
         return $this;
     }

@@ -120,7 +120,7 @@ public function formCommande(SliderRepository $repo_slider, Commande $commande =
        
         $manager->persist($contact);
         $manager->flush();
-        $this->addFlash('success', 'La contact a bien été Créer !');
+        $this->addFlash('success', 'La contact et Avis a bien été Créer !');
         return $this->redirectToRoute('app_app');
     }
     return $this->renderForm('app/contact.html.twig', [   

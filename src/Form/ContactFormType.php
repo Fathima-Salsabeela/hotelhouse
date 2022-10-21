@@ -6,6 +6,7 @@ use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ContactFormType extends AbstractType
 {
@@ -16,9 +17,17 @@ class ContactFormType extends AbstractType
                 ->add('nom')
                 ->add('telephone')
                 ->add('email')
-                ->add('categorie')
+                ->add('categorie', ChoiceType::class, [
+                    'choices' => [
+                        'General'=> "General",
+                        'Chambre'=> "Chambre",
+                        'Restaurant'=> "Restaurant",
+                        'Spa'=> "Spa"
+                    ]
+                ])
                 ->add('sujet')
                 ->add('votredemande')
+                ->add('avis')
             // ->add('date_enregistrement')
         ;
     }
